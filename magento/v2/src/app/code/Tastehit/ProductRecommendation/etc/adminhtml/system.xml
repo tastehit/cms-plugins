@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="tastehit" translate="label" sortOrder="200">
+            <label>Tastehit</label>
+        </tab>
+        <section id="productrecommendation" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Product Recommendation</label>
+            <tab>tastehit</tab>
+            <resource>Tastehit_ProductRecommendation::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="version" type="text" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\Info</frontend_model>
+                </field>
+
+                <field id="state" translate="label" type="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>State of service</label>
+                    <frontend_model>Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\State</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="last_products_export" translate="label" type="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Last catalog export</label>
+                    <frontend_model>Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\ProductsExport</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+
+
+                <field id="last_sales_export" translate="label" type="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Last cart history export</label>
+                    <frontend_model>Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\SalesExport</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="products_export_path" translate="label" type="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Catalog URL</label>
+                    <frontend_model>Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\CatalogUrl</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sales_export_path" translate="label" type="label" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Buying history URL</label>
+                    <frontend_model>Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\HistoryUrl</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+
+                <field id="enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_id" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer ID</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="export_path" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Public Path To Exports</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="export_time" translate="label" type="time" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Export Start Time</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="export_frequency" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exports Frequency</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
+                    <backend_model>Tastehit\ProductRecommendation\Model\Config\Backend\Cron</backend_model>
+                </field>
+                <field id="export" translate="label comment" type="button" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\Button\Export</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+            </group>
+            <group id="placement" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Placement Settings</label>
+                <field id="heading_product_pages" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Pages Widgets</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="enable_product_page" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay on product pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <!--<comment><![CDATA[For custom position please edit product page template ]]></comment>-->
+                </field>
+                <field id="product_page_enable_1" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget1</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_product_page">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_id_1" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page widget1 ID</label>
+                    <depends>
+                        <field id="product_page_enable_1">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_display_1" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page widget1 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\Products</source_model>
+                    <depends>
+                        <field id="product_page_enable_1">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_enable_2" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget2</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_product_page">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_id_2" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page widget2 ID</label>
+                    <depends>
+                        <field id="product_page_enable_2">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_display_2" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page widget2 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\Products</source_model>
+                    <depends>
+                        <field id="product_page_enable_2">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_enable_3" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget3</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_product_page">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_id_3" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page widget3 ID</label>
+                    <depends>
+                        <field id="product_page_enable_3">1</field>
+                    </depends>
+                </field>
+                <field id="product_page_display_3" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product page widget3 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\Products</source_model>
+                    <depends>
+                        <field id="product_page_enable_3">1</field>
+                    </depends>
+                </field>
+
+                <field id="heading_category_pages" translate="label comment" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Pages Widgets</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="enable_category_page" translate="label comment" type="select" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay on category pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="category_page_enable_1" translate="label comment" type="select" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget1</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_category_page">1</field>
+                    </depends>
+                </field>
+                <field id="category_page_id_1" translate="label comment" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category page widget1 ID</label>
+                    <depends>
+                        <field id="category_page_enable_1">1</field>
+                    </depends>
+                </field>
+                <field id="category_page_display_1" translate="label comment" type="select" sortOrder="240" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category page widget1 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\Categories</source_model>
+                    <depends>
+                        <field id="category_page_enable_1">1</field>
+                    </depends>
+                </field>
+
+                <field id="category_page_enable_2" translate="label comment" type="select" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget2</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_category_page">1</field>
+                    </depends>
+                </field>
+                <field id="category_page_id_2" translate="label comment" type="text" sortOrder="260" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category page widget2 ID</label>
+                    <depends>
+                        <field id="category_page_enable_2">1</field>
+                    </depends>
+                </field>
+                <field id="category_page_display_2" translate="label comment" type="select" sortOrder="270" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category page widget2 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\Categories</source_model>
+                    <depends>
+                        <field id="category_page_enable_2">1</field>
+                    </depends>
+                </field>
+                <field id="category_page_enable_3" translate="label comment" type="select" sortOrder="280" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget3</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_category_page">1</field>
+                    </depends>
+                </field>
+                <field id="category_page_id_3" translate="label comment" type="text" sortOrder="290" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category page widget3 ID</label>
+                    <depends>
+                        <field id="category_page_enable_3">1</field>
+                    </depends>
+                </field>
+                <field id="category_page_display_3" translate="label comment" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category page widget3 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\Categories</source_model>
+                    <depends>
+                        <field id="category_page_enable_3">1</field>
+                    </depends>
+                </field>
+
+
+                <field id="heading_home_page" translate="label comment" type="select" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home Pages Widgets</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="enable_home_page" translate="label comment" type="select" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay on Home page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[For custom position please edit you CMS page and put <br/>{{block class="Tastehit\ProductRecommendation\Block\Catalog\HomePageWidget" widget_id="WIDGET_ID" }}]]></comment>
+                </field>
+
+                <field id="home_page_enable_1" translate="label comment" type="select" sortOrder="420" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget1</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_home_page">1</field>
+                    </depends>
+                </field>
+                <field id="home_page_id_1" translate="label comment" type="text" sortOrder="430" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home page widget1 ID</label>
+                    <depends>
+                        <field id="home_page_enable_1">1</field>
+                    </depends>
+                </field>
+                <field id="home_page_display_1" translate="label comment" type="select" sortOrder="440" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home page widget1 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\HomePage</source_model>
+                    <depends>
+                        <field id="home_page_enable_1">1</field>
+                    </depends>
+                </field>
+
+                <field id="home_page_enable_2" translate="label comment" type="select" sortOrder="450" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget2</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_home_page">1</field>
+                    </depends>
+                </field>
+                <field id="home_page_id_2" translate="label comment" type="text" sortOrder="460" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home page widget2 ID</label>
+                    <depends>
+                        <field id="home_page_enable_2">1</field>
+                    </depends>
+                </field>
+                <field id="home_page_display_2" translate="label comment" type="select" sortOrder="470" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home page widget2 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\HomePage</source_model>
+                    <depends>
+                        <field id="home_page_enable_2">1</field>
+                    </depends>
+                </field>
+
+                <field id="home_page_enable_3" translate="label comment" type="select" sortOrder="480" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Dispay Widget3</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_home_page">1</field>
+                    </depends>
+                </field>
+                <field id="home_page_id_3" translate="label comment" type="text" sortOrder="490" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home page widget3 ID</label>
+                    <depends>
+                        <field id="home_page_enable_3">1</field>
+                    </depends>
+                </field>
+                <field id="home_page_display_3" translate="label comment" type="select" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Home page widget3 placement</label>
+                    <source_model>Tastehit\ProductRecommendation\Model\Config\Source\Placement\HomePage</source_model>
+                    <depends>
+                        <field id="home_page_enable_3">1</field>
+                    </depends>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

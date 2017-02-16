@@ -1,0 +1,513 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ProductRecommendation
+ *
+ * @package    Tastehit_ProductRecommendation
+ * @author     Tastehit
+ * @copyright  Copyright (c) 2016 Tastehit. (https://www.tastehit.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <tabs>
+        <tastehit module="tastehit_productrecommendation" translate="label">
+            <label>Tastehit Extensions</label>
+            <sort_order>600</sort_order>
+        </tastehit>
+    </tabs>
+    <sections>
+        <productrecommendation translate="label" module="tastehit_productrecommendation">
+            <class>separator-top</class>
+            <label>Product Recommendation</label>
+            <tab>tastehit</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <info module="tastehit_productrecommendation" translate="label comment">
+                    <label>Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <info module="tastehit_productrecommendation" translate="label">
+                            <frontend_model>tastehit_productrecommendation/adminhtml_system_config_info</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </info>
+                    </fields>
+                </info>
+                <general module="tastehit_productrecommendation" translate="label comment">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable module="tastehit_productrecommendation" translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                        <customer_id module="tastehit_productrecommendation" translate="label">
+                            <label>Customer ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </customer_id>
+                        <export_path module="tastehit_productrecommendation" translate="label">
+                            <label>Public Path To Exports</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </export_path>
+                        <export_time translate="label">
+                            <label>Export Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </export_time>
+                        <export_frequency module="tastehit_productrecommendation" translate="label">
+                            <label>Exports Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+                            <backend_model>tastehit_productrecommendation/system_config_backend_cron</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </export_frequency>
+                        <reindex module="tastehit_productrecommendation" translate="label">
+                            <label>Export Now</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>tastehit_productrecommendation/adminhtml_system_config_button_export</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </reindex>
+                    </fields>
+                </general>
+                <placement>
+                    <label>Placement Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <heading_product_pages module="tastehit_productrecommendation" translate="label">
+                            <label>Product Pages Widgets</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_product_pages>
+                        <enable_product_page>
+                            <label>Dispay on product pages</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[For custom position please edit product page template app/design/frontend/PACKAGE_NAME/THEME_NAME/template/catalog/product/view.phtml and put "echo $this->getChildHtml('WIDGET_ID')"]]></comment>
+                        </enable_product_page>
+                        <product_page_enable_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Dispay Widget1</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_product_page>1</enable_product_page>
+                            </depends>
+                        </product_page_enable_1>
+                        <product_page_id_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget1 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <product_page_enable_1>1</product_page_enable_1>
+                            </depends>
+                        </product_page_id_1>
+                        <product_page_display_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget1 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_products</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <product_page_enable_1>1</product_page_enable_1>
+                            </depends>
+                        </product_page_display_1>
+
+                        <product_page_enable_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Dispay Widget2</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_product_page>1</enable_product_page>
+                            </depends>
+                        </product_page_enable_2>
+                        <product_page_id_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget2 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <product_page_enable_1>1</product_page_enable_1>
+                            </depends>
+                        </product_page_id_2>
+                        <product_page_display_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget2 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_products</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <product_page_enable_2>1</product_page_enable_2>
+                            </depends>
+                        </product_page_display_2>
+
+                        <product_page_enable_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Dispay Widget3</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_product_page>1</enable_product_page>
+                            </depends>
+                        </product_page_enable_3>
+                        <product_page_id_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget3 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <product_page_enable_1>1</product_page_enable_1>
+                            </depends>
+                        </product_page_id_3>
+                        <product_page_display_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget3 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_products</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <product_page_enable_3>1</product_page_enable_3>
+                            </depends>
+                        </product_page_display_3>
+
+
+                        <heading_home_page module="tastehit_productrecommendation" translate="label">
+                            <label>Home Page Widgets</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_home_page>
+                        <enable_home_page>
+                            <label>Display on Home Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>205</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[For custom position please edit you CMS page and put {{block type="tastehit_productrecommendation/home"  widget_id="WIDGET_ID" }}]]></comment>
+                        </enable_home_page>
+                        <home_page_enable_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Display Widget1</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_home_page>1</enable_home_page>
+                            </depends>
+                        </home_page_enable_1>
+                        <home_page_id_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Home page widget1 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <home_page_enable_1>1</home_page_enable_1>
+                            </depends>
+                        </home_page_id_1>
+                        <home_page_display_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget1 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_home</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <home_page_enable_1>1</home_page_enable_1>
+                            </depends>
+                        </home_page_display_1>
+
+                        <home_page_enable_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Display Widget2</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>235</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_home_page>1</enable_home_page>
+                            </depends>
+                        </home_page_enable_2>
+                        <home_page_id_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Home page widget2 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <home_page_enable_2>1</home_page_enable_2>
+                            </depends>
+                        </home_page_id_2>
+                        <home_page_display_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget2 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_home</source_model>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <home_page_enable_2>1</home_page_enable_2>
+                            </depends>
+                        </home_page_display_2>
+
+                        <home_page_enable_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Display Widget3</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>255</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_home_page>1</enable_home_page>
+                            </depends>
+                        </home_page_enable_3>
+                        <home_page_id_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Home page widget3 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <home_page_enable_3>1</home_page_enable_3>
+                            </depends>
+                        </home_page_id_3>
+                        <home_page_display_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Product page widget3 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_home</source_model>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <home_page_enable_3>1</home_page_enable_3>
+                            </depends>
+                        </home_page_display_3>
+
+                        <heading_category_pages module="tastehit_productrecommendation" translate="label">
+                            <label>Category Pages Widgets</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading_category_pages>
+                        <enable_category_page>
+                            <label>Display on Category Pages</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>305</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_category_page>
+                        <category_page_enable_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Display Widget1</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_category_page>1</enable_category_page>
+                            </depends>
+                        </category_page_enable_1>
+                        <category_page_id_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Category page widget1 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <category_page_enable_1>1</category_page_enable_1>
+                            </depends>
+                        </category_page_id_1>
+                        <category_page_display_1 module="tastehit_productrecommendation" translate="label">
+                            <label>Category page widget1 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_category</source_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <category_page_enable_1>1</category_page_enable_1>
+                            </depends>
+                        </category_page_display_1>
+
+                        <category_page_enable_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Display Widget2</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>335</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_category_page>1</enable_category_page>
+                            </depends>
+                        </category_page_enable_2>
+                        <category_page_id_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Category page widget2 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <category_page_enable_2>1</category_page_enable_2>
+                            </depends>
+                        </category_page_id_2>
+                        <category_page_display_2 module="tastehit_productrecommendation" translate="label">
+                            <label>Category page widget2 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_category</source_model>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <category_page_enable_2>1</category_page_enable_2>
+                            </depends>
+                        </category_page_display_2>
+
+                        <category_page_enable_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Display Widget3</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>355</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable_category_page>1</enable_category_page>
+                            </depends>
+                        </category_page_enable_3>
+                        <category_page_id_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Category page widget3 ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>360</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <category_page_enable_3>1</category_page_enable_3>
+                            </depends>
+                        </category_page_id_3>
+                        <category_page_display_3 module="tastehit_productrecommendation" translate="label">
+                            <label>Category page widget3 placement</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tastehit_productrecommendation/system_config_source_placement_category</source_model>
+                            <sort_order>370</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <category_page_enable_3>1</category_page_enable_3>
+                            </depends>
+                        </category_page_display_3>
+
+                    </fields>
+                </placement>
+            </groups>
+        </productrecommendation>
+    </sections>
+</config>

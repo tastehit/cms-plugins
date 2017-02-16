@@ -1,0 +1,33 @@
+<?php
+/**
+ * Copyright © 2016 Tastehit. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /* @var $_helper \Tastehit\ProductRecommendation\Helper\Data */ ?>
+<?php $_helper = $this->helper('Tastehit\ProductRecommendation\Helper\Data');?>
+<?php if ($_helper->isEnabled()): ?>
+    <script type="text/javascript">
+        //<![CDATA[
+        var _thq = _thq || [];
+        _thq.push(['setId', '<?php /* @escapeNotVerified */ echo $_helper->getCustomerId(); ?>']);
+        _thq.push(['trackPageView']);
+        _thq.push(['trackEvents']);
+        _thq.push(['detectChanges']);
+        _thq.push(['displaySmartMenu']);
+
+        (function() {
+            var th=document.createElement('script');
+            th.type='text/javascript';th.async=true;
+            th.src=('https:'==document.location.protocol?
+                    'https://':'http://') +
+                'www.tastehit.com/static/th.js';
+            var s=document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(th, s);
+        })();
+        //]]>
+    </script>
+<?php endif; ?>

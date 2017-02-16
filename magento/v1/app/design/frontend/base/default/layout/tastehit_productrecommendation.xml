@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ProductRecommendation
+ *
+ * @package    Tastehit_ProductRecommendation
+ * @author     Tastehit
+ * @copyright  Copyright (c) 2016 Tastehit. (https://www.tastehit.com)
+ * @license    https://www.gnu.org/licenses/gpl-2.0.html  GNU General Public License (GPL 2.0)
+*/
+-->
+<layout>
+
+    <default>
+        <reference name="before_body_end">
+            <block type="tastehit_productrecommendation/js" name="tastehit.js" ifconfig="productrecommendation/general/enable" />
+        </reference>
+    </default>
+
+</layout>

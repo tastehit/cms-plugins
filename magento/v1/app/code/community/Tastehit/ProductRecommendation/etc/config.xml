@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ProductRecommendation
+ *
+ * @package    Tastehit_ProductRecommendation
+ * @author     Tastehit
+ * @copyright  Copyright (c) 2016 Tastehit. (https://www.tastehit.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Tastehit_ProductRecommendation>
+            <version>0.1.1</version>
+        </Tastehit_ProductRecommendation>
+    </modules>
+    <global>
+        <models>
+            <tastehit_productrecommendation>
+                <class>Tastehit_ProductRecommendation_Model</class>
+                <resourceModel>tastehit_productrecommendation_resource</resourceModel>
+            </tastehit_productrecommendation>
+            <tastehit_productrecommendation_resource>
+                <class>Tastehit_ProductRecommendation_Model_Resource</class>
+            </tastehit_productrecommendation_resource>
+        </models>
+        <blocks>
+            <tastehit_productrecommendation>
+                <class>Tastehit_ProductRecommendation_Block</class>
+            </tastehit_productrecommendation>
+        </blocks>
+        <helpers>
+            <tastehit_productrecommendation>
+                <class>Tastehit_ProductRecommendation_Helper</class>
+            </tastehit_productrecommendation>
+        </helpers>
+        <resources>
+            <tastehit_productrecommendation_setup>
+                <setup>
+                    <module>Tastehit_ProductRecommendation</module>
+                </setup>
+            </tastehit_productrecommendation_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <tastehit before="Mage_Adminhtml">Tastehit_ProductRecommendation_Adminhtml</tastehit>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <layout>
+            <updates>
+                <tastehit_productrecommendation>
+                    <file>tastehit_productrecommendation.xml</file>
+                </tastehit_productrecommendation>
+            </updates>
+        </layout>
+        <events>
+            <controller_action_layout_generate_xml_before>
+                <observers>
+                    <tastehit_productrecommendation>
+                        <type>singleton</type>
+                        <class>tastehit_productrecommendation/observer</class>
+                        <method>addWidgets</method>
+                    </tastehit_productrecommendation>
+                </observers>
+            </controller_action_layout_generate_xml_before>
+        </events>
+    </frontend>
+    <crontab>
+        <jobs>
+            <tastehit_export>
+                <run>
+                    <model>tastehit_productrecommendation/observer::export</model>
+                </run>
+            </tastehit_export>
+        </jobs>
+    </crontab>
+</config>

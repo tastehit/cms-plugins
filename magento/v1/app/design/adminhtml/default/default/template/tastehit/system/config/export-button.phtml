@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function export_now() {
+        new Ajax.Request('<?php echo $this->getAjaxUrl() ?>', {
+            method:     'get',
+            onSuccess: function(transport){
+                if (transport.responseText){
+                    alert('Export done')
+                }
+            }
+        });
+    }
+    //]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>

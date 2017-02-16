@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ProductRecommendation
+ *
+ * @package    Tastehit_ProductRecommendation
+ * @author     Tastehit
+ * @copyright  Copyright (c) 2016 Tastehit. (https://www.tastehit.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <productrecommendation translate="title">
+                                        <title>Tastehit Product Recommendation</title>
+                                        <sort_order>10</sort_order>
+                                    </productrecommendation>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

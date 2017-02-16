@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © 2016 Tastehit. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php /* @var $block \Tastehit\ProductRecommendation\Block\Adminhtml\System\Config\Button\Export */ ?>
+
+<script type="text/javascript">
+    require([
+            'jquery',
+            'prototype',
+            'mage/backend/validation',
+            'mage/template',
+            'jquery/ui',
+            'mage/translate'
+        ],
+        function($, mageTemplate) {
+            $('#productrecommendation_general').on('click', '#export_button', function(event){
+                $.ajax({
+                    url : '<?php /* @escapeNotVerified */ echo $block->getAjaxSyncUrl() ?>',
+                    type: 'GET',
+                    dataType: 'json',
+                    showLoader: true
+                }).done(function (data) {
+                    return true;
+                });
+
+            });
+
+            $(document).ready(function() {
+                var customerId = $('#productrecommendation_general_customer_id').val();
+                var requestUri = '//www.tastehit.com/api/' + customerId + '/stats';
+                $.ajax({
+                    type: 'GET',
+                    url: requestUri,
+                    dataType: 'json',
+                    cache: true
+                }).done(function( response ) {
+                    if ( response == undefined) {
+                        $('#row_productrecommendation_general_state td.value').html('<span>Not available</span>');
+                        $('#row_productrecommendation_general_state td.value span').addClass('grid-severity-major');
+                    }
+                    else if ( response.engine && response.engine.ready) {
+                        $('#row_productrecommendation_general_state td.value').html('<span>Online</span>');
+                        $('#row_productrecommendation_general_state td.value span').addClass('grid-severity-notice');
+                    }
+                });
+            });
+
+        });
+</script>
+
+<?php echo $block->getButtonHtml() ?>
+<span class="sync-indicator no-display" id="sync_span">
+    <img alt="Export Now" style="margin:0 5px" src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/process_spinner.gif') ?>"/>
+    <span id="sync_message_span"></span>
+</span>
+<input type="hidden" id="synchronize-validation-input" class="required-synchronize no-display"/>
